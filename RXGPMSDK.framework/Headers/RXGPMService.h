@@ -9,7 +9,7 @@
 
 #pragma mark - 注意！！！GPM指标由自定义SDK与UWA两种方式上传，SDK直接在此类中执行定时获取并上传；UWA在C#获取主库中的开关与时间间隔，并创建定时器上传。如需修改，则需要修改SDK与C#两处
 
-typedef void(^GetFPSAndJANK)(NSInteger FPS, NSInteger JANK);
+typedef void(^GetFPSAndJANK)(int FPS, int JANK);
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,25 +22,25 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getAllInfoWithCompletion:(void(^)(NSDictionary *propertiesDict))completion;
 
 //获取当前FPS与JANK卡顿
-- (void)getCurrentFPSAndJankWithBlock:(void(^)(NSInteger FPS, NSInteger JANK))complete;
+- (void)getCurrentFPSAndJankWithBlock:(void(^)(int FPS, int JANK))complete;
 
 //获取当前应用占用的内存
-- (int64_t)memoryUsage;
+- (double)memoryUsage;
 
 //获取当前电池剩余电量
 - (int)getBatteryLevel;
 
 //获取当前电池总容量x
-- (int)getBatteryCapacity;
+- (double)getBatteryCapacity;
 
 //获取当前功率x
-- (int)getCurrentPower;
+- (double)getCurrentPower;
 
 //获取当前设备电流x
 - (int)getCurrent;
 
 //获取电池当前温度x
-- (int)getBatteryTemperature;
+- (double)getBatteryTemperature;
 
 //获取CPU温度x
 - (int)getCPUTemperature;
@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 //获取CPU温度x
 - (int)getGPUTemperature;
 
-//获取CPU
+//获取CPU使用率
 - (float)getCpuUsage;
 
 /**
