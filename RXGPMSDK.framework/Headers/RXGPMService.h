@@ -18,6 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 //单例
 + (instancetype)sharedSDK;
 
+/**
+ * 初始化
+ */
+- (void)regist;
+
 //获取所有的信息并返回properties字典,DEVICE_ID在主库中获取
 - (void)getAllInfoWithCompletion:(void(^)(NSDictionary *propertiesDict))completion;
 
